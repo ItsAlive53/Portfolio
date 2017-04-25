@@ -21,22 +21,31 @@
 }
 
 #firstRow {
-    background: #5dd;
+   /* background: #5dd;*/
     padding: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
+#headerCanvas {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+}
+
 #aboutMe {
     padding: 80px;
 }
 
-#langs, #langs li {
+.langs, #langs li {
     margin-top: 10px;
 }
 
-#langs {
+#firstLang {
     padding-top: 30px;
 }
 
@@ -47,6 +56,7 @@
 .evenRow, .oddRow {
     padding: 30px;
     height: auto;
+    width: 100%;
 }
 
 .evenRow {
@@ -74,4 +84,10 @@
     width: 100%;
     max-width: 400px;
     align-self: center;
+}
+
+/* temporary bootstrap override */
+.img-fluid {
+    width: 100%;
+    height: 100%;
 }
