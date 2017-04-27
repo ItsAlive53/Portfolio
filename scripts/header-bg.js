@@ -5,7 +5,7 @@ var mousePos = {
     y: -5000
 };
 
-var characters = "０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ";
+var characters = "０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚあいうえおわをらりるれろたちつてとやゆよさしすせそはひふへほかきくけこなにぬねのまみむめもんアイウエオラリルレロワヲタチツテトサシスセソハヒフヘホカキクケコナニヌネノンマミムメモ";
 var characters = characters.split("");
 
 var fontsize = 10;
@@ -106,7 +106,9 @@ function makeLine() {
     var startX = Math.floor(Math.random() * c.width);
     ctx.beginPath();
     ctx.moveTo(startX, yside);
-    ctx.lineTo(Math.floor(Math.random() * c.width), Math.floor(Math.random() * c.height));
+    do {
+        ctx.lineTo(Math.floor(Math.random() * c.width), Math.floor(Math.random() * c.height));
+    } while (Math.random() > 0.5);
     ctx.lineTo(xside, Math.floor(Math.random() * c.height));
     ctx.shadowBlur = 30;
     ctx.shadowColor = '#3334dd';
