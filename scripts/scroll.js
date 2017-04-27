@@ -7,3 +7,9 @@ function toTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+function scrollWork() {
+    var scrollOffset = $("#showcaseStart").offset().top - $("#navbar").outerHeight(true);
+    console.log(scrollOffset);
+    $("html, body").animate({scrollTop: scrollOffset}, 500)
+}

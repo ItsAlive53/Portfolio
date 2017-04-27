@@ -13,11 +13,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/tether.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/top-scroll-button.js"></script>
+    <script src="scripts/scroll.js"></script>
     <script src="scripts/header-bg.js"></script>
   </head>
 
@@ -28,26 +29,26 @@
 
     <!-- START navbar -->
 
-    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" id="navbar">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Navigation Menu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="#">Portfolio</a>
+      <a class="navbar-brand" href="#" onclick="javascript:toTop();">Portfolio</a>
 
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav">
 
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#" onclick="javascript:scrollWork();">Work</a>
           </li>
           
-          <li class="navbar-nav">
-            <a class="nav-link" href="#">Page 2</a>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
           </li>
           
-          <li class=navbar-nav>
-            <a class="nav-link" href="#">Page 3</a>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
 
         </ul>
@@ -55,18 +56,6 @@
     </nav>
 
     <!-- END navbar -->
-
-    <!-- Canvas test --><!--
-    <header>
-      <canvas></canvas>
-      <div>
-        <h1>Toni</h1>
-        <ul>
-          <li>C#</li>
-        </ul>
-      </div>
-    </header>-->
-    <!-- END Canvas test -->
 
     <div class="container-fluid">
       <div class="row">
@@ -79,39 +68,86 @@
               <p>I'm Toni, I make websites and applications.</p>
               <br>
               <h5>Currently I can use:</h5>
-              <!--<ul id="langs">
-                <li>C#</li>
-                <li>CSS</li>
-                <li>HTML5</li>
-                <li>Bootstrap</li>
-                <li>JavaScript</li>
-                <li>jQuery</li>
-              </ul>-->
-                <p class="langs" id="firstLang">C#</p>
-                <p class="langs">CSS</p>
-                <p class="langs">jQuery</p>
-                <p class="langs">HTML5</p>
-                <p class="langs">JavaScript</p>
-                <p class="langs">Bootstrap</p>
+              <p class="langs" id="firstLang">C#</p>
+              <p class="langs">CSS</p>
+              <p class="langs">PHP</p>
+              <p class="langs">jQuery</p>
+              <p class="langs">HTML5</p>
+              <p class="langs">JavaScript</p>
+              <p class="langs">Bootstrap</p>
             </div>
           </div>
           <!-- social media links -->
           <div class="row justify-content-around" id="medialinks">
             <div class="col d-flex justify-content-center">
-              <a href="https://github.com/ItsAlive53" class="btn btn-outline-primary">
+              <a href="https://github.com/ItsAlive53" class="btn btn-primary">
                 <i class="fa fa-github"></i> GitHub
               </a>
             </div>
-
+            <!--
             <div class="col d-flex justify-content-center">
               <a href="mailto:toni.sojakka@hotmail.com" class="btn btn-outline-primary">
                 <i class="fa fa-envelope"></i> Email me
               </a>
-            </div>
+            </div>-->
           </div>
         </div>
       
         <!-- website showcase -->
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow" id="showcaseStart">
+          <img src="images/pong.png" class="img img-fluid thumbnails">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
+          <h3>Pong</h3>
+          <p>Old game remade in JS, run through a HTML5 Canvas.</p>
+          <a href="pong/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
+          <img src="images/responsivecompanysite.png" class="img img-fluid thumbnails" alt="Image of responsive company website.">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
+          <h3>Company Website (Bootstrap)</h3>
+          <p>The company website, redone with bootstrap. Still using filler text and images.</p>
+          <a href="Webpage_3_Responsive/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
+          <img src="images/companysite.png" class="img img-fluid thumbnails" alt="Image of company website.">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
+          <h3>Company Website</h3>
+          <p>An example of a company site, done with filler text and images.</p>
+          <a href="Webpage_3/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
+          <img src="images/powerbutton.png" class="img img-fluid thumbnails" alt="Image of power button website.">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
+          <h3>Power Button</h3>
+          <p>It's a button that toggles the background light.</p>
+          <a href="powerbutton/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
+          <img src="images/portfolioconcept.png" class="img img-fluid thumbnails" alt="Image of the portfolio concept site.">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
+          <h3>Portfolio (Concept)</h3>
+          <p>First iteration of a portfolio, done yet again with filler text and images.</p>
+          <a href="portfolio/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
+        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
+          <img src="images/tribute.png" class="img img-fluid thumbnails">
+        </div>
+        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
+          <h3>Tribute Page</h3>
+          <p>Concept of a tribute page. As it's with filler text and images, as it is, it's basically a tribute to a lamp.</p>
+          <a href="tribute_page/index.html" class="btn btn-outline-primary">Go to website</a>
+        </div>
+
         <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
           <img src="images/profile.png" class="img img-fluid thumbnails" alt="Image of profile website.">
         </div>
@@ -128,60 +164,6 @@
           <h3>Table</h3>
           <p>A website with a centered table with filler text.</p>
           <a href="Webpage_2/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
-          <img src="images/companysite.png" class="img img-fluid thumbnails" alt="Image of company website.">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
-          <h3>Company Website</h3>
-          <p>An example of a company site, done with filler text and images.</p>
-          <a href="Webpage_3/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
-          <img src="images/responsivecompanysite.png" class="img img-fluid thumbnails" alt="Image of responsive company website.">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
-          <h3>Company Website (Bootstrap)</h3>
-          <p>The company website, redone with bootstrap. Still using filler text and images.</p>
-          <a href="Webpage_3_Responsive/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
-          <img src="images/powerbutton.png" class="img img-fluid thumbnails" alt="Image of power button website.">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
-          <h3>Power Button</h3>
-          <p>It's a button that toggles the background light.</p>
-          <a href="powerbutton/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
-          <img src="images/portfolioconcept.png" class="img img-fluid thumbnails" alt="Image of the portfolio concept site.">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
-          <h3>Portfolio (Concept)</h3>
-          <p>First iteration of a portfolio, done yet again with filler text and images.</p>
-          <a href="portfolio/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center oddRow">
-          <img src="images/tribute.png" class="img img-fluid thumbnails">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc oddRow">
-          <h3>Tribute Page</h3>
-          <p>Concept of a tribute page. As it's with filler text and images, as it is, it's basically a tribute to a lamp.</p>
-          <a href="tribute_page/index.html" class="btn btn-outline-primary">Go to website</a>
-        </div>
-
-        <div class="col-xs-12 col-md-6 d-flex align-self-center justify-content-center evenRow">
-          <img src="images/pong.png" class="img img-fluid thumbnails">
-        </div>
-        <div class="col-xs-12 col-md-6 text-center site-desc evenRow">
-          <h3>Pong</h3>
-          <p>Old game remade in JS, run through a HTML5 Canvas.</p>
-          <a href="pong/index.html" class="btn btn-outline-primary">Go to website</a>
         </div>
 
         <!-- leave commented for easy copypaste later
