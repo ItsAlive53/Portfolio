@@ -6,11 +6,19 @@ var mousePos = {
 };
 
 var characters = "０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚあいうえおわをらりるれろたちつてとやゆよさしすせそはひふへほかきくけこなにぬねのまみむめもんアイウエオラリルレロワヲタチツテトサシスセソハヒフヘホカキクケコナニヌネノンマミムメモ";
-var characters = characters.split("");
+characters = characters.split("");
 
-var fontsize = 10;
+const fontsize = 10;
 var cols;
 var drops = [];
+
+var initialized = false;
+
+var center;
+
+var startLineAt;
+var endLineAt;
+var lineAt;
 
 $(window).resize(() => {
     var cs = getComputedStyle(c);
@@ -20,40 +28,45 @@ $(window).resize(() => {
     for (var i = 0; i < cols; i++)
         if (!(drops[i] > 0))
             drops[i] = Math.floor(Math.random() * 20) - 19;
+    center = c.height / 2;
 });
 
-$('document').ready(function() {
+$('document').ready(() => {
     c = document.getElementById('headerCanvas');
     var cs = getComputedStyle(c);
     c.width = parseInt(cs.getPropertyValue('width'), 10);
     c.height = parseInt(cs.getPropertyValue('height'), 10);
     ctx = c.getContext('2d');
+
+    if (!!(c.getContext && c.getContext('2d'))) {
+        $('#aboutMe').addClass('transparent');
+        $('#medialinks').addClass('transparent');
+    }
+
     cols = c.width / fontsize;
     for (var i = 0; i < cols; i++) {
         drops[i] = Math.floor(Math.random() * 50) - 49;
     }
+
+    center = c.height / 2;
+    startLineAt = center - 47;
+    endLineAt = center + 47;
+    lineAt = startLineAt + 1;
+
     drawRect(0, 0, c.height, c.width, '#000000');
+
     $('#firstRow').on('mousemove', (evt) => {
         console.log('mouse move event 1');
         mouseMoveFunc(evt);
     });
-    setInterval(() => {/*
-        drawRect(0, 0, c.height, c.width, '#000000');
-        var grd = ctx.createRadialGradient(mousePos.x, mousePos.y, 1, mousePos.x, mousePos.y, 125);
-        grd.addColorStop(0, '#ffffff');
-        grd.addColorStop(1, '#000000');
-        drawCircle(mousePos.x, mousePos.y, 150, grd);*/
-        drawNumbers();
 
-        if (Math.random() > 0.99) makeLine();
-
-        var grd = ctx.createLinearGradient(c.width / 2 - 200, 0, c.width / 2 + 200, 0);
-        grd.addColorStop(0, "rgba(0,0,0,0)");
-        grd.addColorStop(0.15, "rgba(0,0,0,1)");
-        grd.addColorStop(0.85, "rgba(0,0,0,1)");
-        grd.addColorStop(1, "rgba(0,0,0,0)");
-
-        //drawRect(c.width / 2 - 200, 0, c.height, 400, grd);
+    setInterval(() => {
+        if (!initialized) {
+            initBar();
+        } else {
+            drawNumbers();
+            if (Math.random() > 0.99) makeLine();
+        }
     }, 66);
 });
 
@@ -126,4 +139,22 @@ function calcMousePos(evt) {
         x: mouseX,
         y: mouseY
     };
+}
+
+function initBar() {
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#0a0';
+    ctx.strokeRect(8, center - 51, 14, 102);
+    drawRect(11, startLineAt, lineAt - startLineAt, 8, '#080');
+    ctx.font="40px monospace";
+    ctx.textBaseline="middle";
+    ctx.fillStyle = '#0a0';
+    ctx.fillText("Initializing...", 50, center);
+    ctx.lineWidth = 1;
+    lineAt++;
+    if (lineAt > endLineAt) {
+        initialized = true;
+        $('#aboutMe').removeClass('transparent');
+        $('#medialinks').removeClass('transparent');
+    }
 }

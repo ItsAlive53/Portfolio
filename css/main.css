@@ -28,7 +28,8 @@
     flex-direction: column;
     font-family: "Roboto", "Open Sans", sans-serif;
     color: #aed;
-    text-shadow: 0 0 5px #22d;
+    /*color: rgba(100,150,200,0);
+    text-shadow: 0 0 5px #22d;*/
 }
 
 #headerCanvas {
@@ -94,4 +95,10 @@
 
 .submitformbody {
     margin: 50px 15px 50px 15px;
+}
+
+.transparent, .transparent a {
+    color: rgba(0,0,0,0) !important;
+    background-color: rgba(0,0,0,0) !important;
+    border-color: rgba(0,0,0,0) !important;
 }
