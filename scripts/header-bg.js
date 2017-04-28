@@ -49,8 +49,8 @@ $('document').ready(() => {
     }
 
     center = c.height / 2;
-    startLineAt = center - 47;
-    endLineAt = center + 47;
+    startLineAt = center - 48;
+    endLineAt = center + 48;
     lineAt = startLineAt + 1;
 
     drawRect(0, 0, c.height, c.width, '#000000');
@@ -151,7 +151,10 @@ function initBar() {
     ctx.fillStyle = '#0a0';
     ctx.fillText("Initializing...", 50, center);
     ctx.lineWidth = 1;
-    lineAt++;
+    if (lineAt + 7 > endLineAt && lineAt + 1 < endLineAt)
+        lineAt += endLineAt - lineAt;
+    else
+        lineAt += 7;
     if (lineAt > endLineAt) {
         initialized = true;
         $('#aboutMe').removeClass('transparent');
