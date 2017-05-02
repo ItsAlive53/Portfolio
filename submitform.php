@@ -50,15 +50,15 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Work</a>
+            <a class="nav-link" href="index.html#showcaseStart">Work</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="cv.html">CV</a>
+            <a class="nav-link" href="index.html#cv">CV</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="index.html#contactForm">Contact</a>
           </li>
 
         </ul>
@@ -158,7 +158,9 @@ if (isset($_POST['email'])) {
     $headers = "From: ".$email_sender."\r\n".
     "Reply-To: ".$email_sender."\r\n".
     "Return-Path: ".$email_sender."\r\n".
-    "X-Mailer: PHP/".phpversion();
+    "X-Mailer: PHP/".phpversion()."\r\n".
+    "MIME-Version: 1.0\r\n".
+    "Content-type: text/plain; charset=utf-8";
     mail($email_to, $email_subject, $email_message, $headers);
 ?>
 

@@ -126,9 +126,12 @@ function makeLine() {
     var startX = Math.floor(Math.random() * c.width);
     ctx.beginPath();
     ctx.moveTo(startX, yside);
+    var linePoints = 0;
+    const maxPoints = 4;
     do {
         ctx.lineTo(Math.floor(Math.random() * c.width), Math.floor(Math.random() * c.height));
-    } while (Math.random() > 0.5);
+        linePoints += 1;
+    } while (Math.random() > 0.5 && linePoints < maxPoints);
     ctx.lineTo(xside, Math.floor(Math.random() * c.height));
     ctx.shadowBlur = 30;
     ctx.shadowColor = '#3334dd';
