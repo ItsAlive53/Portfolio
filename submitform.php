@@ -95,7 +95,8 @@ if (isset($_POST['email'])) {
         !isset($_POST['lastName']) ||
         !isset($_POST['email']) ||
         !isset($_POST['phoneNumber']) ||
-        !isset($_POST['message'])) {
+        !isset($_POST['message']) ||
+        !isset($_POST['verify'])) {
       errorScreen("<li>There appears to be a problem with the form data, please try again in a moment.</li>");
     }
 
@@ -105,6 +106,7 @@ if (isset($_POST['email'])) {
     $email_sender = $_POST['email'];
     $phone = $_POST['phoneNumber'];
     $message = $_POST['message'];
+    $verify = $_POST['verify'];
 
     $errMessage = "";
     $emailRegex = "/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/";
@@ -133,6 +135,10 @@ if (isset($_POST['email'])) {
 
     if (strlen($message) < 2) {
       $errMessage .= '<li>The Message you entered appears to be invalid.</li>';
+    }
+
+    if ($verify !== '8') {
+      $errMessage .= '<li>The verification answer you entered is invalid.</li>';
     }
 
     if (strlen($errMessage) > 0) {
