@@ -20,6 +20,10 @@ var startLineAt;
 var endLineAt;
 var lineAt;
 
+var currentNumberRow = [];
+
+var mouseMoved = false;
+
 $(window).resize(() => {
     var cs = getComputedStyle(c);
     c.width = parseInt(cs.getPropertyValue('width'), 10);
@@ -27,7 +31,7 @@ $(window).resize(() => {
     if (cols < c.width / fontsize) cols = c.width / fontsize;
     for (var i = 0; i < cols; i++)
         if (!(drops[i] > 0))
-            drops[i] = Math.floor(Math.random() * 20) - 19;
+            drops[i] = Math.floor(Math.random() * 40) - 39;
     center = c.height / 2;
 });
 
@@ -45,7 +49,7 @@ $('document').ready(() => {
 
     cols = c.width / fontsize;
     for (var i = 0; i < cols; i++) {
-        drops[i] = Math.floor(Math.random() * 50) - 49;
+        drops[i] = Math.floor(Math.random() * 150) - 149;
     }
 
     center = c.height / 2;
@@ -56,7 +60,6 @@ $('document').ready(() => {
     drawRect(0, 0, c.height, c.width, '#000000');
 
     $('#firstRow').on('mousemove', (evt) => {
-        console.log('mouse move event 1');
         mouseMoveFunc(evt);
     });
 
@@ -72,14 +75,20 @@ $('document').ready(() => {
 
 function drawNumbers() {
     drawRect(0, 0, c.height, c.width, 'rgba(0,0,0,0.05)');
-    ctx.fillStyle = '#0F0';
     ctx.font = fontsize + "px sans-serif";
     ctx.textAlign = "center";
     for (var i = 0; i < drops.length; i++) {
+    	if (!!(currentNumberRow[i])) {
+    		ctx.fillStyle = '#0F0';
+    		ctx.fillText(currentNumberRow[i], i * fontsize, (drops[i] - 1) * fontsize);
+    	}
+
         var text = characters[Math.floor(Math.random() * characters.length)];
+        currentNumberRow[i] = text;
+        ctx.fillStyle = '#FFF';
         ctx.fillText(text, i * fontsize, drops[i] * fontsize);
 
-        if (drops[i] * fontsize > c.height && Math.random() > 0.975)
+        if (drops[i] * fontsize > c.height && Math.random() > 0.99)
             drops[i] = 0;
 
         drops[i]++;
@@ -103,9 +112,7 @@ function drawCircle(xpos, ypos, r, color) {
 }
 
 function mouseMoveFunc(evt) {
-    console.log('mouse move event 2');
     mousePos = calcMousePos(evt);
-    console.log(mousePos.x + ', ' + mousePos.y);
 }
 
 function makeLine() {

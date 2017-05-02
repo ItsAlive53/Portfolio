@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Portfolio</title>
 
-    <link href="css/tether.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-basic.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-arrows.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-arrows-dark.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
@@ -44,7 +42,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="index.html">Portfolio</a>
+      <a class="navbar-brand" href="index.html" onclick="javascript:toTop();">
+        <img src="favicon.png" alt="Portfolio" width="30" height="30">
+      </a>
 
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav">

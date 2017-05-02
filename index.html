@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Portfolio</title>
+    <meta name="Description" content="">
 
-    <link href="css/tether.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-basic.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-arrows.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tether-theme-arrows-dark.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
@@ -32,6 +31,7 @@
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/scroll.js"></script>
     <script src="scripts/header-bg.js"></script>
+    <script src="scripts/formsubmit.js"></script>
   </head>
 
   <body>
@@ -46,21 +46,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="#" onclick="javascript:toTop();">Portfolio</a>
+      <a class="navbar-brand" href="#" onclick="javascript:toTop();">
+      	<img src="favicon.png" alt="Portfolio" width="30" height="30">
+      </a>
 
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav">
 
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="#" onclick="javascript:scrollWork();">Work</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="cv.html">CV</a>
+            <a class="nav-link" href="#" onclick="javascript:scrollCv();">CV</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="#" onclick="javascript:scrollContact();">Contact</a>
           </li>
 
         </ul>
@@ -83,6 +85,7 @@
               <p class="langs" id="firstLang">C#</p>
               <p class="langs">CSS</p>
               <p class="langs">PHP</p>
+              <p class="langs">Java</p>
               <p class="langs">jQuery</p>
               <p class="langs">HTML5</p>
               <p class="langs">JavaScript</p>
@@ -199,6 +202,99 @@
         </div>
 
         -->
+
+        <!-- END showcase -->
+
+        <hr>
+
+        <!-- CV -->
+
+        <div class="col-12 header-row dotted-top cv-bg-1" id="cv"><h3>Work Experience</h3></div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-1"><em>04/10/2014 - Current</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-1">&lt;todo&gt;</div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-1"><em>14/01/2016 - 26/02/2016</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-1">int. 1</div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-1"><em>currently unknown</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-1">int. 2</div>
+
+        <div class="col-12 header-row dotted-top cv-bg-2"><h3>Education</h3></div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-2"><em>11/08/2015 - cur.unknown (Dropped)</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-2">the last one</div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-2"><em>cur.unknown - Current</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-2">this one</div>
+
+        <div class="col-12 header-row dotted-top cv-bg-1"><h3>Personal Skills</h3></div>
+        <div class="col-xs-12 col-sm-3 text-right cv-bg-1"><em>Languages</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-1">
+          <ul>
+            <li>Finnish</li>
+            <li>Swedish</li>
+            <li>English</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-right cv-row cv-bg-1"><em>Tech Related</em></div>
+        <div class="col-xs-12 col-sm-9 cv-row cv-bg-1">
+          <ul>
+            <li>Good understanding of Microsoft Office 20xx and OpenOffice</li>
+            <li>Experienced in using Visual Studio 2015 and 2017</li>
+            <li>
+              Varying understanding of the following languages:
+              <ul>
+                <li>C#</li>
+                <li>CSS</li>
+                <li>PHP</li>
+                <li>Java</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-12 dotted-bottom cv-bg-1"></div>
+
+        <!-- END CV -->
+
+        <hr>
+
+        <!-- contact form -->
+        <div class="col-12" id="contactForm">
+
+        	<h3 class="text-center" id="messageformheader">Send a message</h3>
+
+        	<form method="POST" action="submitform.php" id="messageform" onsubmit="popupform(this);">
+		        <div class="form-group row justify-content-center">
+		          <label for="firstName" class="sr-only">First Name</label>
+		          <input type="text" class="form-control col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="firstName" name="firstName" placeholder="First name *" required>
+		        </div>
+
+		        <div class="form-group row justify-content-center">
+		          <label for="lastName" class="sr-only">Last Name</label>
+		          <input type="text" class="form-control col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="lastName" name="lastName" placeholder="Last name *" required>
+		        </div>
+		                
+		        <div class="form-group row justify-content-center">
+		          <label for="emailInput" class="sr-only">Email Address</label>
+		          <input type="email" class="form-control col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="emailInput" name="email" placeholder="email@address.com *" required>
+		        </div>
+
+		        <div class="form-group row justify-content-center">
+		          <label for="phoneNumber" class="sr-only">Phone Number</label>
+		          <input type="tel" class="form-control col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="phoneNumber" name="phoneNumber" placeholder="Phone number">
+		        </div>
+		        
+		        <div class="form-group row justify-content-center">
+		          <label for="message" class="sr-only">Message</label>
+		          <textarea form="messageform" class="form-control col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="message" name="message" placeholder="Your message *" rows="10"></textarea>
+		        </div>
+		        
+		        <div class="form-group row justify-content-center">
+		          <button type="submit" class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 btn btn-primary">Submit</button>
+		        </div>
+		      </form>
+        </div>
+
+        <!-- END contact form -->
       </div>
     </div>
   </body>

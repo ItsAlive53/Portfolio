@@ -64,7 +64,7 @@
     width: 100%;
 }
 
-.evenRow {
+.evenRow, #contactForm {
     background: #e3e3e3;
 }
 
@@ -93,12 +93,54 @@
     align-self: center;
 }
 
+.cvbody {
+    padding: 30px;
+}
+
 .submitformbody {
     margin: 50px 15px 50px 15px;
+}
+
+#messageformheader {
+    padding: 30px;
 }
 
 .transparent, .transparent a {
     color: rgba(0,0,0,0) !important;
     background-color: rgba(0,0,0,0) !important;
     border-color: rgba(0,0,0,0) !important;
+}
+
+.navbar-brand, .nav-item a {
+    outline: 0;
+}
+
+.cv-row {
+    padding-bottom: 30px;
+}
+
+em, .header-row {
+    color: #33c;
+}
+
+.header-row {
+    padding: 30px 15px 15px 15px;
+}
+
+.dotted-top {
+    border-top-style: dotted;
+    border-color: #000;
+}
+
+.dotted-bottom {
+    border-bottom-style: dotted;
+    border-color: #000;
+}
+
+.cv-bg-1 {
+    background: #fff;
+}
+
+.cv-bg-2 {
+    background: #eef;
 }
