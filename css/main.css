@@ -93,6 +93,10 @@
     align-self: center;
 }
 
+#submitformbody {
+    margin: 50px 15px 50px 15px;
+}
+
 #messageformheader {
     padding: 30px;
 }

@@ -68,13 +68,13 @@
     <!-- END navbar -->
 
     <div class="container-fluid">
-      <div class="row submitformbody">
+      <div class="row" id="submitformbody">
 
 <?php
 # firstName, lastName, email, phoneNumber, message
 if (isset($_POST['email'])) {
     # temporary
-    $email_to = "toni.sojakka@hotmail.com";
+    $email_to = "toni.sojakka@optistud.fi";
     $email_subject = "Email from portfolio form";
 
     function errorScreen($error) {
@@ -96,7 +96,7 @@ if (isset($_POST['email'])) {
         !isset($_POST['email']) ||
         !isset($_POST['phoneNumber']) ||
         !isset($_POST['message'])) {
-      errorScreen("There appears to be a problem with the form data, please try again in a moment.");
+      errorScreen("<li>There appears to be a problem with the form data, please try again in a moment.</li>");
     }
 
 
@@ -158,9 +158,7 @@ if (isset($_POST['email'])) {
     $headers = "From: ".$email_sender."\r\n".
     "Reply-To: ".$email_sender."\r\n".
     "Return-Path: ".$email_sender."\r\n".
-    "X-Mailer: PHP/".phpversion()."\r\n".
-    "MIME-Version: 1.0\r\n".
-    "Content-type: text/plain; charset=utf-8";
+    "X-Mailer: PHP/".phpversion();
     mail($email_to, $email_subject, $email_message, $headers);
 ?>
 
